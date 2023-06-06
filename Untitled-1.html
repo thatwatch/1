@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>红酒知识问答</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            display: block;
+            margin: 30px auto 0;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>红酒知识问答</h1>
+    <form method="post">
+        <p>1. 红酒酒标上的年份是什么意思？</p>
+        <label><input type="radio" name="q1" value="A">A. 葡萄采摘年份</label>
+        <label><input type="radio" name="q1" value="B">B. 酒的灌装年份</label>
+        <label><input type="radio" name="q1" value="C">C. 品牌建立年份</label>
+
+        <p>2. 红酒中的“涩味”是由什么因素引起的？</p>
+        <label><input type="radio" name="q2" value="A">A. 葡萄中的果酸</label>
+        <label><input type="radio" name="q2" value="B">B. 葡萄中的单宁</label>
+        <label><input type="radio" name="q2" value="C">C. 葡萄中的酵母</label>
+
+        <p>3. 红酒中的“酒精度数”是怎样表现的？</p>
+        <label><input type="radio" name="q3" value="A">A. 40% Vol.</label>
+        <label><input type="radio" name="q3" value="B">B. Vol. 40%</label>
+        <label><input type="radio" name="q3" value="C">C. 40 Vol.%</label>
+
+        <p>4. 红酒中的“酵母菌”是什么？</p>
+        <label><input type="radio" name="q4" value="A">A. 一种细菌</label>
+        <label><input type="radio" name="q4" value="B">B. 一种真菌</label>
+        <label><input type="radio" name="q4" value="C">C. 一种无机物</label>
+
+        <p>5. 红酒中的“单宁”有什么作用？</p>
+        <label><input type="radio" name="q5" value="A">A. 让酒更顺滑</label>
+        <label><input type="radio" name="q5" value="B">B. 让酒口味更丰富</label>
+        <label><input type="radio" name="q5" value="C">C. 让酒更好入口</label>
+
+        <p>6. 红酒中的“蒸馏酒”是如何蒸馏的？</p>
+        <label><input type="radio" name="q6" value="A">A. 酿造好了之后直接蒸馏</label>
+        <label><input type="radio" name="q6" value="B">B. 酿造后先桶陈寨蒸馏</label>
+        <label><input type="radio" name="q6" value="C">C. 酿造的同时蒸馏</label>
+
+        <p>7. 红酒中的“颜色”主要是由什么因素决定的？</p>
+        <label><input type="radio" name="q7" value="A">A. 葡萄皮</label>
+        <label><input type="radio" name="q7" value="B">B. 葡萄果肉</label>
+        <label><input type="radio" name="q7" value="C">C. 葡萄核</label>
+
+        <p>8. 红酒中的“发酵”是为了？</p>
+        <label><input type="radio" name="q8" value="A">A. 产生酒精</label>
+        <label><input type="radio" name="q8" value="B">B. 弱化酸味</label>
+        <label><input type="radio" name="q8" value="C">C. 析出汁水</label>
+
+        <p>9. 红酒中的“木桶香”是哪里来的？</p>
+        <label><input type="radio" name="q9" value="A">A. 葡萄本身的植物气味</label>
+        <label><input type="radio" name="q9" value="B">B. 发酵过程中产生的</label>
+        <label><input type="radio" name="q9" value="C">C. 在木桶里放置吸收的</label>
+
+        <p>10. 红酒的甜型是指？</p>
+        <label><input type="radio" name="q10" value="A">A. 葡萄品种很甜</label>
+        <label><input type="radio" name="q10" value="B">B. 葡萄发酵彻底</label>
+        <label><input type="radio" name="q10" value="C">C. 葡萄酒含糖量高</label>
+
+        <input type="button" value="提交答案" onclick="checkAnswers()">
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            var score = 0;
+            if (document.querySelector('input[name="q1"]:checked').value === 'A') score++;
+            if (document.querySelector('input[name="q2"]:checked').value === 'B') score++;
+            if (document.querySelector('input[name="q3"]:checked').value === 'B') score++;
+            if (document.querySelector('input[name="q4"]:checked').value === 'B') score++;
+            if (document.querySelector('input[name="q5"]:checked').value === 'B') score++;
+            if (document.querySelector('input[name="q6"]:checked').value === 'B') score++;
+            if (document.querySelector('input[name="q7"]:checked').value === 'A') score++;
+            if (document.querySelector('input[name="q8"]:checked').value === 'A') score++;
+            if (document.querySelector('input[name="q9"]:checked').value === 'C') score++;
+            if (document.querySelector('input[name="q10"]:checked').value === 'C') score++;
+            document.getElementById('result').innerHTML = '完成本次问答后，你的总得分是：' + score + ' 分。截图发送给客服，可获得小奖励哦～';
+        }
+    </script>
+	</ul>
+		<div class="total-score"><a href="https://h5.jbzyun.cn/ucenter/seniorForm?siteId=11215&formId=570" class="button">点我进入抽奖页面</a></div>
+	</div>
+</body>
+</html>
+
+<body>
+</body>
+</html>
